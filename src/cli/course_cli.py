@@ -41,7 +41,7 @@ def view_courses(db: Session):
     for course in courses:
         teacher_name = f"{course.teacher.first_name} {course.teacher.last_name}" if course.teacher else "N/A"
         table.add_row(str(course.id), course.name, teacher_name)
-    
+
     console.print(table)
 
 def update_course(db: Session):

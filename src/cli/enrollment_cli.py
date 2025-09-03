@@ -52,14 +52,14 @@ def view_student_enrollments(db: Session):
         return
 
     enrollments = enrollment_service.get_enrollments_for_student(db, student_id)
-    
+
     table = Table(title=f"Enrollments for {student.first_name} {student.last_name}")
     table.add_column("Enrollment ID", style="cyan")
     table.add_column("Course Name", style="magenta")
 
     for enrollment in enrollments:
         table.add_row(str(enrollment.id), enrollment.course.name)
-    
+
     console.print(table)
 
 def view_course_enrollments(db: Session):
@@ -72,7 +72,7 @@ def view_course_enrollments(db: Session):
         return
 
     enrollments = enrollment_service.get_enrollments_for_course(db, course_id)
-    
+
     table = Table(title=f"Enrollments for {course.name}")
     table.add_column("Enrollment ID", style="cyan")
     table.add_column("Student Name", style="magenta")
@@ -80,5 +80,5 @@ def view_course_enrollments(db: Session):
     for enrollment in enrollments:
         student_name = f"{enrollment.student.first_name} {enrollment.student.last_name}"
         table.add_row(str(enrollment.id), student_name)
-    
+
     console.print(table)

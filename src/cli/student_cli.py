@@ -41,7 +41,7 @@ def view_students(db: Session):
 
     for student in students:
         table.add_row(str(student.id), student.first_name, student.last_name, student.email)
-    
+
     console.print(table)
 
 def update_student(db: Session):

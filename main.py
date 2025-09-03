@@ -7,8 +7,6 @@ from src.cli.course_cli import handle_courses
 from src.cli.enrollment_cli import handle_enrollments
 
 def main():
-    # This is a good place to create tables if they don't exist
-    # For a production app, you'd use Alembic migrations
     Base.metadata.create_all(bind=engine)
     db = SessionLocal()
 
@@ -24,7 +22,7 @@ def main():
             handle_enrollments(db)
         elif choice == '5':
             break
-    
+
     db.close()
 
 if __name__ == "__main__":

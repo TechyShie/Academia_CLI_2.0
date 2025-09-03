@@ -36,7 +36,7 @@ def view_teachers(db: Session):
 
     for teacher in teachers:
         table.add_row(str(teacher.id), teacher.first_name, teacher.last_name)
-    
+
     console.print(table)
 
 def update_teacher(db: Session):
